@@ -10,7 +10,7 @@ function ShelfPage() {
     dispatch ({type: 'FETCH_SHELF'});
   }, []); 
   
-  const shelf = useSelector(store=> store.shelf);
+  const shelf = useSelector(store=> store.shelfReducer);
 
   return (
     <div className="container">
