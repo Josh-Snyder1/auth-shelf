@@ -21,9 +21,21 @@ function* addItem(action) {
    }
   }
 
+  function* deleteItem(action) {
+    console.log('id to delte is', action.payload.user)
+    try {
+       yield axios.delete(`/api/shelf/${action.payload.user.id}`, action.payload);
+       yield put({ type: 'FETCH_SHELF'})
+    }   
+    catch (err) {
+       console.error('error is', err)
+    }
+   }
+
 function* fetchSaga() {
     yield takeLatest('FETCH_SHELF', fetchShelf);
     yield takeLatest('ADD_ITEM', addItem);
+    yield takeLatest('DELETE_ITEM', deleteItem);
   }
   
   export default fetchSaga;

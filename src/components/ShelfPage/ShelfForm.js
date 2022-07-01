@@ -4,10 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 
 function ShelfFrom(){
 
-    let [imgproperties, setImgproperties] = useState ({
-        description,
-    })
-
     let [ description, setDescription] = useState('');
     let [ image_url, setImage_url] = useState('');
     // const user = useSelector(store=> store.user);
