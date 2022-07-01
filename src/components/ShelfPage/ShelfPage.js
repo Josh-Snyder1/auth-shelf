@@ -19,8 +19,9 @@ function ShelfPage() {
       <ShelfFrom />
       {/* TODO
       []add new item form from here to DB using img URLs 
-      [] delete item ont if same user logged in*/}
+    [] delete item ont if same user logged in*/}
       <p>All of the available items can be seen here.</p>
+    {shelf.length > 0 && 
       <ul>
         {shelf.map(item => 
           <ShelfItem 
@@ -29,7 +30,10 @@ function ShelfPage() {
           />
         )}
       </ul>
+    }
+     
     </div>
+        
   );
 }
 

@@ -11,9 +11,9 @@ function* fetchShelf() {
  }
 }
 
-function* addItem() {
+function* addItem(action) {
    try {
-      yield axios.post('/api/shelf', action.payload);
+      const res = yield axios.post('/api/shelf', action.payload);
       yield put({ type: 'SET_SHELF', payload: res.data})
    }   
    catch (err) {
