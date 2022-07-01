@@ -13,8 +13,8 @@ function* fetchShelf() {
 
 function* addItem(action) {
    try {
-      const res = yield axios.post('/api/shelf', action.payload);
-      yield put({ type: 'SET_SHELF', payload: res.data})
+      yield axios.post('/api/shelf', action.payload);
+      yield put({ type: 'FETCH_SHELF'})
    }   
    catch (err) {
       console.error('error is', err)

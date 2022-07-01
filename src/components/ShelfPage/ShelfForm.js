@@ -9,7 +9,7 @@ function ShelfFrom(){
     })
 
     let [ description, setDescription] = useState('');
-    let [ image_url, setimgUrl] = useState('');
+    let [ image_url, setImage_url] = useState('');
     // const user = useSelector(store=> store.user);
     const dispatch = useDispatch(); 
 
@@ -35,7 +35,7 @@ const addToShelf = (event) => {
             placeholder="Discription"
             /> 
             <input 
-            onChange={(event) => { setimgUrl(event.target.value)}}
+            onChange={(event) => { setImage_url(event.target.value)}}
             placeholder="Url"
             /> 
             <input type="submit"/>
