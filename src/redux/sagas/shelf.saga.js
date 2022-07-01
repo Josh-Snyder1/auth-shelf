@@ -11,10 +11,19 @@ function* fetchShelf() {
  }
 }
 
-
+function* addItem() {
+   try {
+      yield axios.post('/api/shelf', action.payload);
+      yield put({ type: 'SET_SHELF', payload: res.data})
+   }   
+   catch (err) {
+      console.error('error is', err)
+   }
+  }
 
 function* fetchSaga() {
     yield takeLatest('FETCH_SHELF', fetchShelf);
+    yield takeLatest('ADD_ITEM', addItem);
   }
   
   export default fetchSaga;
