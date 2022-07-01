@@ -2,6 +2,7 @@ import React from 'react';
 import ShelfItem from '../ShelfItem/ShelfItem';
 import { useSelector, useDispatch } from 'react-redux'; 
 import { useEffect } from 'react'; 
+import ShelfFrom from './ShelfForm';
 
 function ShelfPage() {
   const dispatch = useDispatch(); 
@@ -15,6 +16,7 @@ function ShelfPage() {
   return (
     <div className="container">
       <h2>Shelf</h2>
+      <ShelfFrom />
       {/* TODO
       []add new item form from here to DB using img URLs 
       [] delete item ont if same user logged in*/}
