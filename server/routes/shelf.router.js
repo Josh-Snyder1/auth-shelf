@@ -20,6 +20,7 @@ router.get('/', (req, res) => {
  * Add an item for the logged in user to the shelf
  */
 router.post('/', (req, res) => {
+
   const sqlQuery=`
     INSERT INTO "item" (description, image_url, user_id)
     VALUES ($1, $2, $3);
@@ -33,6 +34,7 @@ router.post('/', (req, res) => {
       console.log('Error in post', error);
       res.sendStatus(500);
     })
+
 });
 
 /**
