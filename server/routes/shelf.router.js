@@ -44,7 +44,7 @@ router.post('/', (req, res) => {
  * Delete an item if it's something the logged in user added
  */
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
-  console.log('body is', req.params.id)
+  console.log('body is', req.user.id)
 
   // endpoint functionality
   sqlQuery = `
@@ -57,6 +57,12 @@ sqlParams = [
   req.params.id,
   req.user.id,
 ];
+pool.query(sqlQuery, sqlParams)
+    .then(() => { res.sendStatus(200); })
+    .catch((err) => {
+      console.log('Error completing DELETE shelf query', err);
+      res.sendStatus(500);
+    });
 });
 
 /**

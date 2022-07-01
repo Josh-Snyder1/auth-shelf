@@ -22,9 +22,10 @@ function* addItem(action) {
   }
 
   function* deleteItem(action) {
-    console.log('id to delte is', action.payload.user)
+    console.log('item id to delte is', action.payload.item.id)
+    console.log('payload is ', action.payload)
     try {
-       yield axios.delete(`/api/shelf/${action.payload.user.id}`, action.payload);
+       yield axios.delete(`/api/shelf/${action.payload.item.id}`);
        yield put({ type: 'FETCH_SHELF'})
     }   
     catch (err) {
